@@ -1,6 +1,9 @@
 var changeling = require('../');
 
-changeling.monitor('http://10.211.55.4:5984/test', { type: 'couchdb'}, function(err, notifier) {
-    console.log(err);
-    console.log(notifier);
+changeling.monitor('http://10.211.55.4:5984/lbs', { type: 'couchdb', getDoc: true }, function(err, notifier) {
+    if (! err) {
+        notifier.on('change', function(data) {
+            console.log(data.id);
+        });
+    }
 });
