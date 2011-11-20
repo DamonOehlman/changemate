@@ -1,0 +1,28 @@
+{
+  "name": "changeling",
+  "description": "Change Notification service (part of the Steelmesh stack)",
+  "tags": [
+    "change",
+    "notify",
+    "filesystem",
+    "couchdb"
+  ],
+  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">= 0.4.x < 0.7.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+      "vows": "0.5.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/steelmesh/changeling.git"
+  },
+  "bugs": {
+    "url": "http://github.com/steelmesh/changeling/issues"
+  },
+  "contributors": []
+}
