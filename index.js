@@ -1,1 +1,1 @@
-module.exports = require('./lib/changeling');
+module.exports = require('./lib/changemate');
