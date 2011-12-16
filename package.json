@@ -8,12 +8,12 @@
     "couchdb"
   ],
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "engines": {
     "node": ">= 0.4.x < 0.7.0"
   },
   "dependencies": {
-      "request": "2.2.x"
+      "debug": ">= 0.1.0"
   },
   "devDependencies": {
       "vows": "0.5.x"
