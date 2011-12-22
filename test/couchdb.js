@@ -55,7 +55,7 @@ describe('changemate can detect changes in a couch db', function() {
     
     it('intercepted the change', function(done) {
         setTimeout(function() {
-            assert(_changes.length);
+            assert.equal(_changes.length, 1);
             done();
         }, 1000);
     });

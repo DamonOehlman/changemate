@@ -1,16 +1,15 @@
 var changemate = require('../'),
+    counter = 0,
     opts = {
-        type: 'couchdb',
-        getDoc: true,
-        autoPersist: true
+        type: 'couchdb'
     };
 
-changemate('http://10.211.55.4:5984/lbs', opts, function(err, notifier) {
+changemate('http://sidelab.iriscouch.com/seattle_neighbourhood', opts, function(err, notifier) {
     if (! err) {
         notifier.on('change', function(data) {
-            console.log('got change id: ' + data.id);
+            console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
         });
-        
+
         notifier.on('close', function() {
             console.log('notifier closed');
         });
