@@ -13,6 +13,7 @@ var assert = require('assert'),
         name: 'Bob',
         age: 75
     },
+    _notifier,
     _updateSeq,
     _changes = [];
     
@@ -29,14 +30,13 @@ describe('changemate can detect changes in a couch db', function() {
         });
     });
     
-    it('can configure the change monitor', function(done) {
-        changemate(targetUrl, { type: 'couchdb', since: _updateSeq }, function(err, notifier) {
-            notifier.on('change', function(item) {
-                debug('captured update for item: ' + item.id);
-                _changes.push(item);
-            });
+    it('can configure the change monitor', function() {
+        _notifier = changemate.watch(targetUrl, { since: _updateSeq });
+        assert(_notifier);
 
-            done(err);
+        _notifier.on('change', function(item) {
+            debug('captured update for item: ' + item.id);
+            _changes.push(item);
         });
     });
 
