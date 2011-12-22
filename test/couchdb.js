@@ -5,7 +5,7 @@ var assert = require('assert'),
     nano = require('nano'),
     // remove any trailing delimiters
     couchUrl = config.couchurl.replace(/\/$/, ''),
-    targetUrl = couchUrl + '/' + config.db,
+    targetUrl = '<:couch:> ' + couchUrl + '/' + config.db,
     db = nano(couchUrl).use(config.db),
     reTrailingDelimiter = /\/$/,
     testDoc = {
