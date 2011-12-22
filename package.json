@@ -8,7 +8,7 @@
     "couchdb"
   ],
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "engines": {
     "node": ">= 0.4.x < 0.7.0"
   },
@@ -16,7 +16,8 @@
       "debug": ">= 0.1.0"
   },
   "devDependencies": {
-      "vows": "0.5.x"
+      "config": ">= 0.4.0",
+      "nano": ">= 1.0.0"
   },
   "repository": {
     "type": "git",
