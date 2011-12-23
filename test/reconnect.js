@@ -8,7 +8,7 @@ var assert = require('assert'),
     _targetUrl = 'http://sidelab.iriscouch.com/seattle_neighbourhood',
     _notifier, _lastSeq = 0;
     
-describe('CONNECTION RESET TESTS: ', function() {
+describe('connection reset tests', function() {
     it('can initialize the notifier', function() {
         debug('watching target database: ' + _targetUrl);
         _notifier = changemate.watch(_targetUrl, opts);

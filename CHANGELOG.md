@@ -1,5 +1,10 @@
 # changemate changelog
 
+## 0.4.5
+
+- Added travis CI integration
+- Removed callbacks still kicking around in the couch notifier.
+
 ## 0.4.4
 
 - Fixed errors with `change` events being fired after a notifier has been manually closed.
