@@ -94,4 +94,8 @@ To make the sample above persist across sessions, the state information could be
 
 ## Alternative Solutions
 
-For an established alternative CouchDB change notification library, you should definitely have a look at the [follow](https://github.com/iriscouch/follow) package from the fine folks at [IrisCouch](http://www.iriscouch.com/).
+Changemate is designed to be a change notification library that supports providing notifications from various sources.  There are some excellent (and more mature) libraries that provide similar services for usually just one of the change sources:
+
+### CouchDB
+
+- [IrisCouch Follow](https://github.com/iriscouch/follow)
