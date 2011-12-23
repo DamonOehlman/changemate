@@ -8,6 +8,18 @@ Changemate is a change notification service and framework. At present it only su
 
 The couchdb notifier is the first cab off the rank, as it is required for [steelmesh](https://github.com/steelmesh/steelmesh).  The couchdb notifier hooks into the [continuous changes feed](http://wiki.apache.org/couchdb/HTTP_Document_API#A_changes) for a couchdb instance.
 
+__Example Creation:__
+
+```js
+var notifier = changemate.watch('<:couch:> http://localhost:5984/testdb');
+```
+
+_OR_
+
+```js
+var notifier = changemate.watch('http://localhost:5984/testdb', { type: 'couch' });
+```
+
 __Supported Options:__
 
 - `since` - the change_sequence to get changes since
