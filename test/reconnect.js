@@ -44,7 +44,7 @@ describe('CONNECTION RESET TESTS: ', function() {
     it('can receive change events again', function(done) {
         debug('listening for new changes');
         _notifier.removeAllListeners('change');
-        _notifier.once('change', function(data) {
+        _notifier.once('change', function(data, state) {
             debug('checking the next change we received is one greater than the last sequence');
             
             // if we have a numeric value, look for the very nexy number in sequence
