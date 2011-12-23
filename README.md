@@ -2,7 +2,25 @@
 
 Changemate is a change notification service and framework. At present it only supports responding to the `_changes` feed of a couch database, but will be expanded in time to support other change notification formats.
 
-## Example Usage
+## Supported Notifiers
+
+### CouchDB
+
+The couchdb notifier is the first cab off the rank, as it is required for [steelmesh](https://github.com/steelmesh/steelmesh).  The couchdb notifier hooks into the [continuous changes feed](http://wiki.apache.org/couchdb/HTTP_Document_API#A_changes) for a couchdb instance.
+
+__Supported Options:__
+
+- `since` - the change_sequence to get changes since
+- `include_docs` - whether or not document fragments should be included with the change data
+- `heartbeat` - the heartbeat interval for the changes feed
+
+### Coming Soon
+
+- Filesystem
+
+## Examples
+
+### Simple Example
 
 ```js
 var changemate = require('changemate'),
@@ -18,7 +36,7 @@ notifier.on('close', function() {
 });
 ```
 
-## Regarding State Management
+### State Management
 
 You can see by running the example above, that the changes for the feed are read from `since=0` each time.  While this is good for the purpose of the example, it's unlikely to be the desired behaviour in your application.
 
