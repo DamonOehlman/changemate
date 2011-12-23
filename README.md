@@ -1,5 +1,7 @@
 # Steelmesh Changemate
 
+<a href="http://travis-ci.org/#!/steelmesh/changemate"><img src="https://secure.travis-ci.org/steelmesh/changemate.png" alt="Build Status"></a>
+
 Changemate is a change notification service and framework. At present it only supports responding to the `_changes` feed of a couch database, but will be expanded in time to support other change notification formats.
 
 ## Supported Notifiers
