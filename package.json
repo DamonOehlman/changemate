@@ -28,6 +28,6 @@
     "url": "http://github.com/steelmesh/changemate/issues"
   },
   
-  "scripts": { "test": "mocha --reporter spec -t 5000" },
+  "scripts": { "test": "mocha --reporter spec -t 10000" },
   "contributors": []
 }

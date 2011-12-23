@@ -27,9 +27,6 @@ describe('connection reset tests', function() {
     });
     
     it('can interrupt the connection, and automatically reconnect', function(done) {
-        // set timeout to 10000 to allow for default reconnect delay of 5000ms
-        this.timeout(10000);
-        
         debug('looking for close events');
         _notifier.once('close', function() {
             debug('close event detected, looking for reconnect');
