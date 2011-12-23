@@ -8,7 +8,7 @@
     "couchdb"
   ],
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "engines": {
     "node": ">= 0.4.x < 0.7.0"
   },
@@ -17,7 +17,8 @@
   },
   "devDependencies": {
       "config": ">= 0.4.0",
-      "nano": ">= 1.0.0"
+      "nano": ">= 1.0.0",
+      "mocha": ">= 0.7.0"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,7 @@
   "bugs": {
     "url": "http://github.com/steelmesh/changemate/issues"
   },
+  
+  "scripts": { "test": "mocha --reporter spec -t 5000" },
   "contributors": []
 }
