@@ -1,10 +1,13 @@
 # changemate changelog
 
+## 0.4.6
+
+- Renamed state to checkpoint as it is more accurate
+
 ## 0.4.5
 
 - Added travis CI integration
 - Removed callbacks still kicking around in the couch notifier.
-- Renamed state to checkpoint as it is more accurate
 
 ## 0.4.4
 
