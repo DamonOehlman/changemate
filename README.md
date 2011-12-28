@@ -54,29 +54,29 @@ notifier.on('close', function() {
 
 You can see by running the example above, that the changes for the feed are read from `since=0` each time.  While this is good for the purpose of the example, it's unlikely to be the desired behaviour in your application.
 
-Changemate does not offer a state persistence mechanism, but does provide state information so that you can store that information yourself and use it:
+Changemate does not offer a checkpoint persistence mechanism, but does provide checkpoint information so that you can store that information yourself and use it:
 
 
 ```js
 var changemate = require('../'),
-    counter = 0, notifier, _state;
+    counter = 0, notifier, _checkpoint;
     
 function _createNotifier() {
     // reset the counter
     counter = 0;
     
-    console.log(_state);
+    console.log(_checkpoint);
     
     // create the notifier
     notifier = changemate.watch(
         '<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood', // target
         {}, // options
-        _state // state
+        _checkpoint // checkpoint
     );
     
-    notifier.on('change', function(data, state) {
-        // save the state
-        _state = state;
+    notifier.on('change', function(data, checkpoint) {
+        // save the checkpoint
+        _checkpoint = checkpoint;
         
         console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
         if (counter >= 100) {
@@ -90,9 +90,9 @@ function _createNotifier() {
 _createNotifier();
 ```
 
-In the example above, we are collecting the state data that is passed through in the change event.  Additionally, we are closing the notifier for every 100 updates, and creating a new notifier with the state data that has been captured in previous events.
+In the example above, we are collecting the checkpoint data that is passed through in the change event.  Additionally, we are closing the notifier for every 100 updates, and creating a new notifier with the checkpoint data that has been captured in previous events.
 
-To make the sample above persist across sessions, the state information could be save to a local JSON file or similar and reloaded the next time the script ran to start from next required update.
+To make the sample above persist across sessions, the checkpoint information could be save to a local JSON file or similar and reloaded the next time the script ran to start from next required update.
 
 ## Alternative Solutions
 

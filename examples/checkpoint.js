@@ -11,11 +11,11 @@ function _createNotifier() {
     notifier = changemate.watch(
         '<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood', // target
         {}, // options
-        _checkpoint // state
+        _checkpoint // checkpoint
     );
     
     notifier.on('change', function(data, checkpoint) {
-        // save the state
+        // save the checkpoint
         _checkpoint = checkpoint;
         
         console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
