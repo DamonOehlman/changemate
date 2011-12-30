@@ -1,6 +1,6 @@
 {
   "name": "changemate",
-  "description": "Change Notification service (part of the Steelmesh stack)",
+  "description": "Change Notification for CouchDB (plus others)",
   "tags": [
     "change",
     "notify",
@@ -8,7 +8,7 @@
     "couchdb"
   ],
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "engines": {
     "node": ">= 0.4.x < 0.7.0"
   },
@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/steelmesh/changemate.git"
+    "url": "git://github.com/DamonOehlman/changemate.git"
   },
   "bugs": {
-    "url": "http://github.com/steelmesh/changemate/issues"
+    "url": "http://github.com/DamonOehlman/changemate/issues"
   },
   
   "scripts": { "test": "mocha --reporter spec -t 10000" },
