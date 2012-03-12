@@ -18,7 +18,9 @@ describe('connection reset tests', function() {
     
     it('can receive change events', function(done) {
         // listen once to know we are done
-        _notifier.once('change', done);
+        _notifier.once('change', function() {
+            done();
+        });
 
         // listen a lot for the updated sequence numbers
         _notifier.on('change', function(data) {
@@ -30,7 +32,9 @@ describe('connection reset tests', function() {
         debug('looking for close events');
         _notifier.once('close', function() {
             debug('close event detected, looking for reconnect');
-            _notifier.once('connect', done);
+            _notifier.once('connect', function() {
+                done();
+            });
         });
         
         // close the connection but allow reconnects
