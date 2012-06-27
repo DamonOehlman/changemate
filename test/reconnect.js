@@ -47,16 +47,9 @@ describe('connection reset tests', function() {
         _notifier.removeAllListeners('change');
         _notifier.once('change', function(data, state) {
             debug('checking the next change we received is one greater than the last sequence');
+            assert(data.seq > _lastSeq);
             
-            // if we have a numeric value, look for the very nexy number in sequence
-            if (typeof data.seq == 'number') {
-                assert.equal(data.seq, _lastSeq + 1);
-            }
-            // otherwise, just look for a value that is considered greater
-            else {
-                assert(data.seq > _lastSeq);
-            }
-            
+            debug('firing done');
             done();
         });
     });
