@@ -13,12 +13,12 @@
     "node": ">= 0.4.x < 0.9.0"
   },
   "dependencies": {
-      "debug": "*"
+    "debug": "*"
   },
   "devDependencies": {
-      "config": "0.4.x",
-      "nano": "3.3.x",
-      "mocha": "1.4.x"
+    "config": "0.4.x",
+    "nano": "3.3.x",
+    "mocha": "1.4.x"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
   "bugs": {
     "url": "http://github.com/DamonOehlman/changemate/issues"
   },
-  
-  "scripts": { "test": "mocha --reporter spec -t 60000" },
+  "scripts": {
+    "test": "mocha --reporter spec -t 60000"
+  },
   "contributors": []
 }
