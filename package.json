@@ -28,6 +28,6 @@
     "url": "http://github.com/DamonOehlman/changemate/issues"
   },
   
-  "scripts": { "test": "mocha --reporter spec -t 0" },
+  "scripts": { "test": "mocha --reporter spec -t 60000" },
   "contributors": []
 }

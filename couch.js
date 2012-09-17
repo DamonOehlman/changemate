@@ -3,17 +3,16 @@ var debug = require('debug')('changemate'),
     http = require('http'),
     url = require('url'),
     util = require('util'),
-    errcode = require('../errcode'),
     reTrailingSlash = /\/$/;
 
-var CouchNotifier = exports.Notifier = function(target, opts, checkpoint) {
+var CouchNotifier = exports.Notifier = function(target, opts) {
     this.target = target;
     this.paused = false;
     
     this.request = null;
     this.response = null;
     this.reconnectOK = true;
-    this.since = checkpoint.since || 0;
+    this.since = typeof opts.since != 'undefined' ? opts.since : 'now';
 
     // add the options to this
     for (var key in opts) {

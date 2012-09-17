@@ -43,7 +43,7 @@ describe('changemate can detect changes in a couch db', function() {
     });
     
     it('can configure the change monitor', function() {
-        _notifier = changemate.watch(targetUrl, { since: _updateSeq });
+        _notifier = changemate(targetUrl, { since: _updateSeq });
         assert(_notifier);
 
         _notifier.on('change', function(item) {

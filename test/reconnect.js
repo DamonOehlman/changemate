@@ -3,15 +3,16 @@ var assert = require('assert'),
     debug = require('debug')('tests'),
     opts = {
         type: 'couchdb',
-        throttleDelay: 400
+        throttleDelay: 400,
+        since: 0
     },
-    _targetUrl = 'http://sidelab.iriscouch.com/seattle_neighbourhood',
+    _targetUrl = 'http://damonoehlman.iriscouch.com/seattle_neighbourhood',
     _notifier, _lastSeq = 0;
     
 describe('connection reset tests', function() {
     it('can initialize the notifier', function() {
         debug('watching target database: ' + _targetUrl);
-        _notifier = changemate.watch(_targetUrl, opts);
+        _notifier = changemate(_targetUrl, opts);
         
         assert(_notifier);
     });
