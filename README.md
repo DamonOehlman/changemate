@@ -1,4 +1,4 @@
-# Steelmesh Changemate
+# Changemate
 
 <a href="http://travis-ci.org/#!/steelmesh/changemate"><img src="https://secure.travis-ci.org/steelmesh/changemate.png" alt="Build Status"></a>
 
