@@ -4,6 +4,11 @@ Changemate is a change notification service and framework. At present it only
 supports responding to the `_changes` feed of a couch database, but will be
 expanded in time to support other change notification formats.
 
+
+[![NPM](https://nodei.co/npm/changemate.png)](https://nodei.co/npm/changemate/)
+
+[![Build Status](https://img.shields.io/travis/DamonOehlman/changemate.svg?branch=master)](https://travis-ci.org/DamonOehlman/changemate)
+
 ## Supported Notifiers
 
 ### CouchDB
@@ -16,15 +21,18 @@ for a couchdb instance.
 ```js
 var changemate = require('changemate');
 var counter = 0;
-var notifier = changemate.watch('<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood');
+var notifier = changemate('<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood');
 
-notifier.on('change', function(data) {
-  console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
-});
-
-notifier.on('close', function() {
-  console.log('notifier closed');
-});
+notifier
+  .on('connect', function() {
+    console.log('connected');
+  })
+  .on('change', function(data) {
+    console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
+  })
+  .on('close', function() {
+    console.log('disconnected from server');
+  });
 
 ```
 
@@ -45,36 +53,39 @@ checkpoint information so that you can store that information yourself and
 use it:
 
 ```js
-var changemate = require('changemate'),
-    counter = 0, notifier, _checkpoint;
-    
+var changemate = require('changemate');
+var counter = 0;
+var notifier;
+var _checkpoint;
+
 function _createNotifier() {
-    // reset the counter
-    counter = 0;
-    
-    console.log(_checkpoint);
-    
-    // create the notifier
-    notifier = changemate.watch(
-        '<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood', // target
-        {}, // options
-        _checkpoint // checkpoint
-    );
-    
-    notifier.on('change', function(data, checkpoint) {
-        // save the checkpoint
-        _checkpoint = checkpoint;
-        
-        console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
-        if (counter >= 100) {
-            notifier.close();
-            _createNotifier();
-        }
-    });
+  // reset the counter
+  counter = 0;
+
+  console.log(_checkpoint);
+
+  // create the notifier
+  notifier = changemate(
+    '<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood', // target
+    {}, // options
+    _checkpoint // checkpoint
+  );
+
+  notifier.on('change', function(data, checkpoint) {
+    // save the checkpoint
+    _checkpoint = checkpoint;
+
+    console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
+    if (counter >= 100) {
+      notifier.close();
+      _createNotifier();
+    }
+  });
 }
 
 // create the notifier
 _createNotifier();
+
 ```
 
 In the example above, we are collecting the checkpoint data that is passed
@@ -96,3 +107,28 @@ just one of the change sources:
 ### CouchDB
 
 - [IrisCouch Follow](https://github.com/iriscouch/follow)
+
+## License(s)
+
+### MIT
+
+Copyright (c) 2014 Damon Oehlman <damon.oehlman@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
