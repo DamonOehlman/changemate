@@ -1,6 +1,6 @@
 {
   "name": "changemate",
-  "description": "Change Notification for CouchDB (plus others)",
+  "description": "Change Notification for CouchDB",
   "keywords": [
     "change",
     "notify",
@@ -27,5 +27,12 @@
   "scripts": {
     "test": "mocha --reporter spec -t 60000",
     "gendocs": "gendocs > README.md"
-  }
+  },
+  "homepage": "https://github.com/DamonOehlman/changemate",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "license": "MIT"
 }
