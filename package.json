@@ -13,9 +13,9 @@
     "debug": "*"
   },
   "devDependencies": {
-    "config": "0.4.x",
-    "nano": "^5.7.1",
-    "mocha": "^1.18.2"
+    "config": "~0.4",
+    "nano": "^5",
+    "mocha": "^1"
   },
   "repository": {
     "type": "git",
