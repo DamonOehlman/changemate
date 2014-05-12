@@ -1,11 +1,14 @@
-var changemate = require('../'),
-    counter = 0,
-    notifier = changemate.watch('<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood');
-    
-notifier.on('change', function(data) {
-    console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
-});
+var changemate = require('../');
+var counter = 0;
+var notifier = changemate('<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood');
 
-notifier.on('close', function() {
-    console.log('notifier closed');
-});
+notifier
+  .on('connect', function() {
+    console.log('connected');
+  })
+  .on('change', function(data) {
+    console.log('got change id: ' + data.id + ', seq: ' + data.seq + ', counter: ' + (++counter));
+  })
+  .on('close', function() {
+    console.log('disconnected from server');
+  });
