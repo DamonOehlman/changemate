@@ -25,6 +25,7 @@
     "url": "http://github.com/DamonOehlman/changemate/issues"
   },
   "scripts": {
-    "test": "mocha --reporter spec -t 60000"
+    "test": "mocha --reporter spec -t 60000",
+    "gendocs": "gendocs > README.md"
   }
 }
