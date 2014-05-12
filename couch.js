@@ -37,9 +37,18 @@ CouchNotifier.prototype.close = function(allowReconnect) {
   if (this.request) {
     debug('aborting request');
 
+    // remove all listeners for the response
+    if (this.response) {
+      this.response.removeAllListeners();
+      this.response = null;
+    }
+
     // abort the request
-    this.request.abort();
+    this.request.end();
     this.request = null;
+
+    // emit a close event
+    this.emit('close');
   }
 }; // close
 
