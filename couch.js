@@ -111,6 +111,10 @@ CouchNotifier.prototype.createChunkProcessor = function(res, opts) {
       buffer = '',
       throttleTimer = 0;
 
+  function resetTimer() {
+    clearTimeout(throttleTimer);
+  }
+
   return function(chunk) {
     // if the notifier no longer has a response object, it has been closed
     // so ignore these data events
@@ -128,11 +132,14 @@ CouchNotifier.prototype.createChunkProcessor = function(res, opts) {
     if (buffer) {
       clearTimeout(throttleTimer);
       throttleTimer = setTimeout(function() {
+        notifier.removeListener('close', resetTimer);
         if (notifier.response && (! notifier.paused)) {
           debug('resuming paused stream');
           res.resume();
         }
       }, opts.throttleDelay || 0);
+
+      notifier.on('close', resetTimer);
 
       // pause the response stream
       res.pause();
@@ -152,6 +159,7 @@ CouchNotifier.prototype.createChunkProcessor = function(res, opts) {
         }
       }
       catch (e) {
+        debug('encountered error JSON parsing buffer: ' + buffer);
       }
     }
   };
