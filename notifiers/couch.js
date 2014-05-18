@@ -24,6 +24,7 @@ prot.connect = function() {
   // if we have a local since value, update our value
   if (this.since) {
     this.followOpts.since = this.since;
+    debug('updating our since value to look for changes since: ' + this.followOpts.since);
   }
 
   // create the feed
