@@ -7,7 +7,7 @@ expanded in time to support other change notification formats.
 
 [![NPM](https://nodei.co/npm/changemate.png)](https://nodei.co/npm/changemate/)
 
-[![Build Status](https://img.shields.io/travis/DamonOehlman/changemate.svg?branch=master)](https://travis-ci.org/DamonOehlman/changemate) 
+[![unstable](https://img.shields.io/badge/stability-unstable-yellowgreen.svg)](https://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/DamonOehlman/changemate.svg?branch=master)](https://travis-ci.org/DamonOehlman/changemate) 
 
 ## Supported Notifiers
 
