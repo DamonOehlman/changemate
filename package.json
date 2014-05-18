@@ -8,7 +8,7 @@
     "couchdb"
   ],
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "dependencies": {
     "cog": "~0.5",
     "debug": "*",
