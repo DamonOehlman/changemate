@@ -14,8 +14,9 @@
   },
   "devDependencies": {
     "config": "~0.4",
+    "mocha": "^1",
     "nano": "^5",
-    "mocha": "^1"
+    "request": "^2"
   },
   "repository": {
     "type": "git",
