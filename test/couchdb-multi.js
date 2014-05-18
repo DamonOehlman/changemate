@@ -7,8 +7,12 @@ var targetUrl = 'http://sidelab.iriscouch.com/seattle_neighbourhood';
 var _notifier;
 var _updateSeq;
 
-describe('changemate can detect changes in a couch db', function() {
+describe('changemate gets all the changes in a changelog for a couchdb', function() {
   var expectedResults = 0;
+
+  after(function() {
+    _notifier && _notifier.close();
+  });
 
   it('can get the full changelog from the db', function(done) {
     request.get({ url: targetUrl + '/_changes?since=0', json: true }, function(err, res, body) {
@@ -21,7 +25,7 @@ describe('changemate can detect changes in a couch db', function() {
     });
   });
 
-  it('can configure the change monitor', function(done) {
+  it('gets change events for each of the known changes in the changeseq', function(done) {
     var counter = 0;
     _notifier = changemate('<:couch:> ' + targetUrl, { since: 0 });
     assert(_notifier);

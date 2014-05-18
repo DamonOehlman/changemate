@@ -140,7 +140,7 @@ function createNotifier(type, target, opts, checkpoint) {
 
   if (lib && lib.Notifier) {
     // normalize the target
-    target = lib.normalizeTarget ? lib.normalizeTarget(target) : target;
+    target = (lib.normalizeTarget ? lib.normalizeTarget(target) : target).trim();
 
     // create the notifier
     notifier = new lib.Notifier(target, opts);
