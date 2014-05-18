@@ -6,7 +6,7 @@ var assert = require('assert'),
       throttleDelay: 400,
       since: 0
     },
-    _targetUrl = 'http://damonoehlman.iriscouch.com/seattle_neighbourhood',
+    _targetUrl = 'https://fluxant.cloudant.com/seattle_neighbourhood',
     _notifier, _lastSeq = 0;
 
 describe('connection reset tests', function() {
