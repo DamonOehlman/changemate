@@ -3,7 +3,7 @@ var changemate = require('../');
 var debug = require('debug')('tests');
 var config = require('config');
 var request = require('request');
-var targetUrl = 'http://sidelab.iriscouch.com/seattle_neighbourhood';
+var targetUrl = 'https://fluxant.cloudant.com/seattle_neighbourhood';
 var _notifier;
 var _updateSeq;
 
