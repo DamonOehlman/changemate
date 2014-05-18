@@ -8,12 +8,7 @@ var reTrailingSlash = /\/$/;
 var Notifier = exports.Notifier = function(target, opts) {
   EventEmitter.call(this);
 
-  this.followOpts = extend({ db: target }, {
-    since: (opts || {}).since,
-    include_docs: (opts || {}).include_docs,
-    heartbeat: (opts || {}).heartbeat || 30000
-  });
-
+  this.followOpts = extend({ db: target }, opts);
   this.throttleDelay = opts && parseInt(opts.throttleDelay, 10);
   this.reconnectDelay = (opts || {}).reconnectDelay || 5000;
 };
@@ -23,12 +18,18 @@ util.inherits(Notifier, EventEmitter);
 var prot = Notifier.prototype;
 
 prot.connect = function() {
-  var feed = this.feed = new Feed(extend({}, this.followOpts, {
-    since: this.since
-  }));
   var notifier = this;
+  var feed;
 
+  // if we have a local since value, update our value
+  if (this.since) {
+    this.followOpts.since = this.since;
+  }
+
+  // create the feed
+  feed = this.feed = new Feed(this.followOpts);
   debug('creating new feed: ', feed);
+
   feed.on('start', function() {
     debug('feed started, is paused: ', feed.is_paused);
 
@@ -52,7 +53,9 @@ prot.connect = function() {
   });
 
   feed.on('error', this.emit.bind(this, 'error'));
-  feed.follow();
+  process.nextTick(function() {
+    feed.follow();
+  });
 };
 
 prot.close = function(allowReconnect) {
