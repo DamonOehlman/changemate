@@ -10,7 +10,9 @@
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
   "version": "0.5.1",
   "dependencies": {
-    "debug": "*"
+    "cog": "~0.5",
+    "debug": "*",
+    "follow": "~0.11"
   },
   "devDependencies": {
     "config": "~0.4",
@@ -26,7 +28,7 @@
     "url": "http://github.com/DamonOehlman/changemate/issues"
   },
   "scripts": {
-    "test": "mocha --reporter spec -t 60000",
+    "test": "mocha --reporter spec -t 60s test/all.js",
     "gendocs": "gendocs > README.md"
   },
   "homepage": "https://github.com/DamonOehlman/changemate",
