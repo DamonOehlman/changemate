@@ -56,19 +56,7 @@ var debug = require('debug')('changemate'),
   could be save to a local JSON file or similar and reloaded the next time the
   script ran to start from next required update.
 
-  ## Alternative Solutions
-
-  Changemate is designed to be a change notification library that supports
-  providing notifications from various sources.  There are some excellent
-  (and more mature) libraries that provide similar services for usually
-  just one of the change sources:
-
-  ### CouchDB
-
-  - [IrisCouch Follow](https://github.com/iriscouch/follow)
-
 **/
-/* internals */
 
 /**
  * The _guessType function is used to parse the target string and determine what type the target

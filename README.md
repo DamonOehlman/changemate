@@ -7,7 +7,7 @@ expanded in time to support other change notification formats.
 
 [![NPM](https://nodei.co/npm/changemate.png)](https://nodei.co/npm/changemate/)
 
-[![Build Status](https://img.shields.io/travis/DamonOehlman/changemate.svg?branch=master)](https://travis-ci.org/DamonOehlman/changemate)
+[![Build Status](https://img.shields.io/travis/DamonOehlman/changemate.svg?branch=master)](https://travis-ci.org/DamonOehlman/changemate) 
 
 ## Supported Notifiers
 
@@ -96,17 +96,6 @@ has been captured in previous events.
 To make the sample above persist across sessions, the checkpoint information
 could be save to a local JSON file or similar and reloaded the next time the
 script ran to start from next required update.
-
-## Alternative Solutions
-
-Changemate is designed to be a change notification library that supports
-providing notifications from various sources.  There are some excellent
-(and more mature) libraries that provide similar services for usually
-just one of the change sources:
-
-### CouchDB
-
-- [IrisCouch Follow](https://github.com/iriscouch/follow)
 
 ## License(s)
 
