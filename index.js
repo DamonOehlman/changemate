@@ -127,10 +127,10 @@ function createNotifier(type, target, opts, checkpoint) {
   }
   catch (e) {
     try {
-      lib = require('./' + type);
+      lib = require('./notifiers/' + type);
     }
     catch (e) {
-      console.log('could not require ./' + type);
+      debug('could not require ./notifiers/' + type);
     }
   }
 
