@@ -15,10 +15,10 @@
     "follow": "^0.12.1"
   },
   "devDependencies": {
-    "config": "~0.4",
-    "mocha": "^1",
-    "nano": "^5",
-    "request": "^2"
+    "config": "^1.20.3",
+    "mocha": "^2.4.5",
+    "nano": "^6.2.0",
+    "request": "^2.72.0"
   },
   "repository": {
     "type": "git",
