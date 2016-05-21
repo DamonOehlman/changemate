@@ -1,6 +1,6 @@
 var changemate = require('../');
 var counter = 0;
-var notifier = changemate('<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood');
+var notifier = changemate('<:couch:> https://fluxant.cloudant.com/seattle_neighbourhood');
 
 notifier
   .on('connect', function() {

@@ -21,7 +21,7 @@ for a couchdb instance.
 ```js
 var changemate = require('changemate');
 var counter = 0;
-var notifier = changemate('<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood');
+var notifier = changemate('<:couch:> https://fluxant.cloudant.com/seattle_neighbourhood');
 
 notifier
   .on('connect', function() {
@@ -66,7 +66,7 @@ function _createNotifier() {
 
   // create the notifier
   notifier = changemate(
-    '<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood', // target
+    '<:couch:> https://fluxant.cloudant.com/seattle_neighbourhood', // target
     {}, // options
     _checkpoint // checkpoint
   );

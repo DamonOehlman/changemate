@@ -11,7 +11,7 @@ function _createNotifier() {
 
   // create the notifier
   notifier = changemate(
-    '<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood', // target
+    '<:couch:> https://fluxant.cloudant.com/seattle_neighbourhood', // target
     {}, // options
     _checkpoint // checkpoint
   );
