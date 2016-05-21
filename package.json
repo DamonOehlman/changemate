@@ -10,9 +10,9 @@
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
   "version": "0.6.0",
   "dependencies": {
-    "cog": "~0.5",
-    "debug": "*",
-    "follow": "~0.11"
+    "cog": "^1.1.0",
+    "debug": "^2.2.0",
+    "follow": "^0.12.1"
   },
   "devDependencies": {
     "config": "~0.4",
