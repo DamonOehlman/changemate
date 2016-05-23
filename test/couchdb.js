@@ -1,13 +1,12 @@
 var assert = require('assert'),
     changemate = require('../'),
     debug = require('debug')('tests'),
-    config = require('config'),
     nano = require('nano'),
-    // remove any trailing delimiters
-    couchUrl = config.couchurl.replace(/\/$/, ''),
-    targetUrl = '<:couch:> ' + couchUrl + '/' + config.db,
-    db = nano(couchUrl).use(config.db),
-    reTrailingDelimiter = /\/$/,
+    hostname = 'http://localhost:5984',
+    dbname = 'changemate',
+    targetUrl = '<:couch:> ' + hostname + '/' + dbname,
+    couch = nano(hostname),
+    db = couch.use(dbname),
     testDoc = {
       _id: 'bob',
       name: 'Bob',
@@ -31,8 +30,16 @@ function _updateTestDoc(callback) {
 
 describe('changemate can detect changes in a couch db', function() {
 
+  before(function(done) {
+    couch.db.create(dbname, done);
+  });
+
   after(function() {
     _notifier && _notifier.close();
+  });
+
+  after(function(done) {
+    couch.db.destroy(dbname, done);
   });
 
   it('can connect to the test database', function(done) {
