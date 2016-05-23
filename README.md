@@ -7,7 +7,7 @@ expanded in time to support other change notification formats.
 
 [![NPM](https://nodei.co/npm/changemate.png)](https://nodei.co/npm/changemate/)
 
-[![unstable](https://img.shields.io/badge/stability-unstable-yellowgreen.svg)](https://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/DamonOehlman/changemate.svg?branch=master)](https://travis-ci.org/DamonOehlman/changemate) 
+[![unstable](https://img.shields.io/badge/stability-unstable-yellowgreen.svg)](https://github.com/dominictarr/stability#unstable) [![Build Status](https://api.travis-ci.org/DamonOehlman/changemate.svg?branch=master)](https://travis-ci.org/DamonOehlman/changemate) [![bitHound Score](https://www.bithound.io/github/DamonOehlman/changemate/badges/score.svg)](https://www.bithound.io/github/DamonOehlman/changemate) 
 
 ## Supported Notifiers
 
@@ -21,7 +21,7 @@ for a couchdb instance.
 ```js
 var changemate = require('changemate');
 var counter = 0;
-var notifier = changemate('<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood');
+var notifier = changemate('<:couch:> https://fluxant.cloudant.com/seattle_neighbourhood');
 
 notifier
   .on('connect', function() {
@@ -66,7 +66,7 @@ function _createNotifier() {
 
   // create the notifier
   notifier = changemate(
-    '<:couch:> http://sidelab.iriscouch.com/seattle_neighbourhood', // target
+    '<:couch:> https://fluxant.cloudant.com/seattle_neighbourhood', // target
     {}, // options
     _checkpoint // checkpoint
   );
@@ -101,7 +101,7 @@ script ran to start from next required update.
 
 ### MIT
 
-Copyright (c) 2014 Damon Oehlman <damon.oehlman@gmail.com>
+Copyright (c) 2016 Damon Oehlman <damon.oehlman@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

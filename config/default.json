@@ -1,4 +1,4 @@
 {
-    "couchurl": "http://sidelab.cloudant.com",
+    "couchurl": "http://fluxant.cloudant.com",
     "db": "changemate"
 }
