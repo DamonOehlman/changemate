@@ -11,7 +11,7 @@
   "version": "1.0.0",
   "dependencies": {
     "cog": "^1.1.0",
-    "debug": "^2.2.0",
+    "debug": "^3.1.0",
     "follow": "^0.12.1"
   },
   "devDependencies": {
