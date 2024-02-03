@@ -12,7 +12,7 @@
   "dependencies": {
     "cog": "^1.1.0",
     "debug": "^2.2.0",
-    "follow": "^0.12.1"
+    "follow": "^1.1.0"
   },
   "devDependencies": {
     "config": "^1.20.3",
